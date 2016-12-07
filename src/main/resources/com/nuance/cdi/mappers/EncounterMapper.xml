@@ -1,0 +1,25 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.nuance.cdi.mappers.EncounterMapper">
+ 
+    <resultMap id="EncounterResultMap" type="com.nuance.cdi.model.Encounter">
+        <id column="ENCOUNTER_MAIN_SID" property="encounterMainSid" />
+        <result column="ACCOUNT_NUM" property="accountNum" />
+        <result column="MEDICAL_RECORD_NUM" property="mrn" />
+        <association property="name" javaType="com.nuance.cdi.model.Name">
+		    <result property="firstName" column="FIRST_NAME"/>
+		    <result property="lastName" column="LAST_NAME"/>
+		    <result property="middleName" column="MID_INITIAL"/>
+		 </association>
+    </resultMap>
+ 
+    <select id="getAllEncounters" resultMap="EncounterResultMap">
+        select ACCOUNT_NUM, MEDICAL_RECORD_NUM, FIRST_NAME, LAST_NAME, MID_INITIAL from ENCOUNTER_MAIN
+    </select>
+ 
+   
+ 
+   
+</mapper>
