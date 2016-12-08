@@ -16,7 +16,7 @@
     </resultMap>
  
     <select id="getAllEncounters" resultMap="EncounterResultMap">
-        select ACCOUNT_NUM, MEDICAL_RECORD_NUM, FIRST_NAME, LAST_NAME, MID_INITIAL from ENCOUNTER_MAIN
+        select ENCOUNTER_MAIN_SID, ACCOUNT_NUM, MEDICAL_RECORD_NUM, FIRST_NAME, LAST_NAME, MID_INITIAL from ENCOUNTER_MAIN
     </select>
  
    
